@@ -306,5 +306,16 @@ namespace SolrExpress.Core.Extension
             search.Add(search.GetBuilder().Boost(query, boostFunctionType ?? BoostFunctionType.Boost));
             return search;
         }
+
+        /// <summary>
+        /// Request Highlighting
+        /// </summary>
+        /// <param name="expression">Expression used to find the property name</param>
+        public static ISolrSearch<TDocument> Highlight<TDocument>(this ISolrSearch<TDocument> search, Expression<Func<TDocument, object>> expression)
+            where TDocument : IDocument
+        {
+            search.Add(search.GetBuilder().Highlight(expression));
+            return search;
+        }
     }
 }

@@ -313,6 +313,18 @@ namespace SolrExpress.Core.Search
                 .GetService<IBoostParameter<TDocument>>()
                 .Configure(query, boostFunctionType ?? BoostFunctionType.Boost);
         }
+        
+        /// <summary>
+        /// Create a highlighting parameter
+        /// </summary>
+        /// <param name="expression">Expression used to find the property name</param>
+        public IHighlightParameter<TDocument> Highlight(Expression<Func<TDocument, object>> expression)
+        {
+            return this
+                .Engine
+                .GetService<IHighlightParameter<TDocument>>()
+                .Configure(expression);
+        }
 
         /// <summary>
         /// Instance of IEngine used to DI

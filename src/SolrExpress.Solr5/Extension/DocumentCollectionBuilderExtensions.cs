@@ -45,6 +45,7 @@ namespace SolrExpress.Solr5.Extension
                 .AddTransient<IFacetQueryResult<TDocument>, FacetQueryResult<TDocument>>()
                 .AddTransient<IFacetRangeResult<TDocument>, FacetRangeResult<TDocument>>()
                 .AddTransient<IInformationResult<TDocument>, InformationResult<TDocument>>()
+                .AddTransient<IHighlightingResult<TDocument>, HighlightingResult<TDocument>>()
                 .AddTransient<IAtomicUpdate<TDocument>, AtomicUpdate<TDocument>>()
                 .AddTransient<IAtomicDelete<TDocument>, AtomicDelete<TDocument>>()
                 .AddTransient<ISearchParameterCollection<TDocument>, SearchParameterCollection<TDocument>>()

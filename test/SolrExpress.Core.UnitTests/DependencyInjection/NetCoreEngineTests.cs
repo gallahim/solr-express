@@ -119,6 +119,10 @@ namespace SolrExpress.Core.UnitTests.DependencyInjection
         {
             throw new NotImplementedException();
         }
+        IHighlightParameter<TDocument> ISearchParameterBuilder<TDocument>.Highlight(Expression<Func<TDocument, object>> expression)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class TestDocument1 : IDocument

@@ -104,5 +104,21 @@ namespace SolrExpress.Core.Extension
 
             return searchResult;
         }
+        
+        /// <summary>
+        /// Returns a highlighting dictionary
+        /// </summary>
+        /// <param name="data">Dictionary containing highlighting information for each document and field</param>
+        public static ISearchResult<TDocument> Highlighting<TDocument>(this ISearchResult<TDocument> searchResult, out Dictionary<string, Dictionary<string, IEnumerable<string>>> data)
+            where TDocument : IDocument
+        {
+            var result = searchResult
+                .Engine
+                .GetService<IHighlightingResult<TDocument>>();
+
+            data = searchResult.Get(result).Data;
+
+            return searchResult;
+        }
     }
 }

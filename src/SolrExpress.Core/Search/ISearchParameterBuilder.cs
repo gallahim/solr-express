@@ -168,6 +168,13 @@ namespace SolrExpress.Core.Search
         /// <param name="boostFunctionType">Boost type used in calculation. Default is BoostFunctionType.Boost</param>
         IBoostParameter<TDocument> Boost(ISearchParameterValue<TDocument> query, BoostFunctionType? boostFunctionType = null);
 
+
+        /// <summary>
+        /// Create a highlighting parameter
+        /// </summary>
+        /// <param name="expression">Expression used to find the property name</param>
+        IHighlightParameter<TDocument> Highlight(Expression<Func<TDocument, object>> expression);
+
         /// <summary>
         /// Get current instance of ServiceContainer
         /// </summary>
